@@ -8,6 +8,7 @@
     const sorryAlert = () => { alert(`Smth wen't wrong, sorry :(` ); }
     const timer = setTimeout(() => { sorryAlert(); }, 2000);
 
+    const getAge = (birthDate) => Math.floor((new Date() - new Date(birthDate).getTime()) / 3.15576e+10)
     const color = (vl, cl) => `<span class='${cl}'>${vl}</span>`;
     const orange = (vl) => color(vl, 'text-orange-400');
     const lime = (vl) => color(vl, 'text-lime-200');
@@ -16,7 +17,7 @@
 
     const data = {
       [orange("name")]:  lime("Albano Xhafaj"),
-      [orange("age")]: lime(28),
+      [orange("age")]: lime(getAge('1997-01-15')),
       [orange("email")]: email("albano.xhafaj10@gmail.com"),
       [orange("job")]: lime("JS Full stack developer"),
       [orange("resume")]: link("https://hello.com"),
