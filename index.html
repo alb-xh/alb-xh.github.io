@@ -12,24 +12,25 @@
     const color = (vl, cl) => `<span class='${cl}'>${vl}</span>`;
     const orange = (vl) => color(vl, 'text-orange-400');
     const lime = (vl) => color(vl, 'text-lime-200');
-    const link = (url) => `<a class='underline text-blue-600 hover:text-blue-800 visited:text-purple-600' href='${url}'>${url}<a>`;
+    const link = (url, text = '') => `<a class='underline text-blue-600 hover:text-blue-800 visited:text-purple-600' href='${url}'>${text || url}<a>`;
     const email = (email) => `<a class='underline text-blue-600 hover:text-blue-800 visited:text-purple-600' href='mailto:${email}'>${email}<a>`;
 
     const data = {
       [orange("name")]:  lime("Albano Xhafaj"),
       [orange("age")]: lime(getAge('1997-01-15')),
       [orange("email")]: email("albano.xhafaj10@gmail.com"),
+      [orange("picture")]: link('/media/profile.jpg',"preview"),
       [orange("job")]: lime("JS Full stack developer"),
       [orange("resume")]: link("https://hello.com"),
       [orange("introduction")]: lime("I love my beautiful wife Alyona, and our grumpy cat Sofia :) I enjoy bike rides on sunsets and a cold beer with friends"),
-      [orange("projects")]: [
-        {
-          [orange("name")]: lime("Comments API"),
-          [orange("description")]: lime("CRUD API for comments about e-commerce products"),
-          [orange("tech")]: [ "Express", "GraphQL", "Mongoose", "MongoDb" ].map((e) => lime(e)),
-          [orange("repo")]: link("https://github/alb-xh/comments-api"),
-        },
-       ]
+      // [orange("projects")]: [
+      //   {
+      //     [orange("name")]: lime("Comments API"),
+      //     [orange("description")]: lime("CRUD API for comments about e-commerce products"),
+      //     [orange("tech")]: [ "Express", "GraphQL", "Mongoose", "MongoDb" ].map((e) => lime(e)),
+      //     [orange("repo")]: link("https://github/alb-xh/comments-api"),
+      //   },
+      //  ]
       }
 
     document.addEventListener("DOMContentLoaded", (event) => {
