@@ -10,7 +10,8 @@
     const timer = setTimeout(() => { sorryAlert(); }, 2000);
     const show = (el) => { el.className = el.className.replace('invisible', ''); }
     const hide = (el) => { if (!el.className.includes('invisible')) { el.className += ' invisible'; } }
-    const hyperlink = ({ href, text, id }) => `<a ${id ? `id='${id}'`: ''} class='underline text-blue-600 hover:text-blue-800 visited:text-purple-600' ${href ? `href='${href}'`: ''} >${text || href}</a>`;
+    const hyperlink = ({ href, text, id, download }) =>
+      `<a ${id ? `id='${id}'`: ''} class='underline text-blue-600 hover:text-blue-800 visited:text-purple-600' ${href ? `href='${href}'`: ''} ${download ? `download='${download}'` : ''} >${text || href}</a>`;
     const getAge = (birthDate) => Math.floor((new Date() - new Date(birthDate).getTime()) / 3.15576e+10)
     const color = (vl, cl) => `<span class='${cl}'>${vl}</span>`;
     const orange = (vl) => color(vl, 'text-orange-400');
@@ -24,7 +25,7 @@
       [orange("picture")]: hyperlink({ id: 'profile-view-link', text: "view" }),
       [orange("job")]: lime("JS Full stack developer"),
       [orange("location")]: lime("Budapest, HU"),
-      [orange("resume")]: hyperlink({ href: "https://hello.com" }),
+      [orange("resume")]: hyperlink({ href: "/media/resume.pdf", text: 'Download', download: 'albano-xhafaj-resume.pdf' }),
       [orange("introduction")]: lime("I love my beautiful wife Alyona, and our grumpy cat Sofia :) I enjoy bike rides on sunsets and a cold beer with friends"),
       // [orange("projects")]: [
       //   {
